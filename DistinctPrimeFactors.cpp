@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 using namespace std;
 
 /**
@@ -20,9 +21,44 @@ int numFactors(int n) {
     return true;
 }
 
-int main() {
-    for (int i: {14, 15, 644, 645, 646}) {
-        cout << numFactors(i) << endl;
+void factors(int n, vector<int> *v) {
+    if (n <= 3){
+        v->push_back(n);
+        return;
     }
+    if (n % 2 == 0) {
+        v->push_back(2);
+        factors(n / 2, v);
+        return;
+    }
+    if (n % 3 == 0) {
+        v->push_back(3);
+        factors(n / 3, v);
+        return;
+    }
+    int i = 5;
+    while (i * i <= n) {
+        if (n % i == 0) {
+            v->push_back(i);
+            factors(n / i, v);
+            return;
+        }
+        if (n % (i + 2) == 0) {
+            v->push_back(i + 2);
+            factors(n / (i + 2), v);
+            return;
+        }
+        i += 6;
+    }
+    v->push_back(n);
+}
+
+int main() {
+    //~ for (int i: {14, 15, 644, 645, 646}) {
+        //~ cout << numFactors(i) << endl;
+    //~ }
+    vector<int> v;
+    factors(14, &v);
+    for (int i: v) cout << i << endl;
     return 0;
 }
