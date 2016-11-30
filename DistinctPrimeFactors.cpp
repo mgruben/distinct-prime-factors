@@ -66,22 +66,14 @@ int numDistinct(vector<int> v) {
 }
 
 int main() {
-    //~ for (int i: {14, 15, 644, 645, 646}) {
-        //~ cout << numFactors(i) << endl;
-    //~ }
-    
-    //~ vector<int> v;
-    //~ factors(14, &v);
-    //~ for (int i: v) cout << i << endl;
-    //~ return 0;
-    
     vector<int> v;
-    for (int i: {14, 15, 644, 645, 646}) {
+    vector<int> seq;
+    int n = 4;
+    for (int i = 4; seq.size() < n; i++) {
         factors(i, &v);
-        for (int f: v) cout << f << " ";
-        cout << endl;
-        cout << "Num distinct: " << numDistinct(v);
-        cout << endl;
+        if (numDistinct(v) == n) seq.push_back(i);
+        else seq.clear();
         v.clear();
     }
+    for (int i: seq) cout << i << endl;
 }
