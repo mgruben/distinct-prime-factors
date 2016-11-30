@@ -53,12 +53,35 @@ void factors(int n, vector<int> *v) {
     v->push_back(n);
 }
 
+/**
+ * Given a sorted vector of integers, returns the number of distinct
+ * integers in that vector.
+ */
+int numDistinct(vector<int> v) {
+    int c = 1;
+    for (int i = 0; i < v.size() - 1; i++) {
+        if (v[i] != v[i + 1]) c++;
+    }
+    return c;
+}
+
 int main() {
     //~ for (int i: {14, 15, 644, 645, 646}) {
         //~ cout << numFactors(i) << endl;
     //~ }
+    
+    //~ vector<int> v;
+    //~ factors(14, &v);
+    //~ for (int i: v) cout << i << endl;
+    //~ return 0;
+    
     vector<int> v;
-    factors(14, &v);
-    for (int i: v) cout << i << endl;
-    return 0;
+    for (int i: {14, 15, 644, 645, 646}) {
+        factors(i, &v);
+        for (int f: v) cout << f << " ";
+        cout << endl;
+        cout << "Num distinct: " << numDistinct(v);
+        cout << endl;
+        v.clear();
+    }
 }
