@@ -21,6 +21,13 @@ int numFactors(int n) {
     return true;
 }
 
+/**
+ * Given an integer n and a reference to a vector v,
+ * push factors of n onto v and recurse.
+ * 
+ * This function pushes the smallest factors first, followed by
+ * larger factors.  As such, it appends vectors in sorted order.
+ */
 void factors(int n, vector<int> *v) {
     if (n <= 3){
         v->push_back(n);
