@@ -73,14 +73,17 @@ int numDistinct(vector<int> v) {
 }
 
 int main() {
-    vector<int> v;
-    vector<int> seq;
+    vector<int> tmp; // stores factors for a given number
+    vector<int> seq; // stores sequences of numbers
+    
+    // find the first "n" numbers to have "n" distinct prime factors
     int n = 4;
+    
     for (int i = 4; seq.size() < n; i++) {
-        factors(i, &v);
-        if (numDistinct(v) == n) seq.push_back(i);
+        factors(i, &tmp); // find i's factors
+        if (numDistinct(tmp) == n) seq.push_back(i);
         else seq.clear();
-        v.clear();
+        tmp.clear();
     }
-    for (int i: seq) cout << i << endl;
+    for (int i: seq) cout << i << endl; // print the "n" numbers
 }
