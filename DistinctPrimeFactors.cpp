@@ -41,7 +41,7 @@ void factors(int n, vector<int> *v) {
         }
         i += 6;
     }
-    v->push_back(n);
+    v->push_back(n); // n is prime
 }
 
 /**
