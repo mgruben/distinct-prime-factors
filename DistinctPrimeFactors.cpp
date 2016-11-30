@@ -64,9 +64,16 @@ int main() {
     int n = 4;
     
     for (int i = 4; seq.size() < n; i++) {
-        factors(i, &tmp); // find i's factors
-        if (numDistinct(tmp) == n) seq.push_back(i);
+        factors(i, &tmp); // push i's factors to tmp (mutates tmp)
+        
+        // beginning or continuation of a sequence
+        if (numDistinct(tmp) == n) {
+            seq.push_back(i);
+        }
+        // end of a sequence
         else seq.clear();
+        
+        // clear factors from tmp for next number
         tmp.clear();
     }
     for (int i: seq) cout << i << endl; // print the "n" numbers
