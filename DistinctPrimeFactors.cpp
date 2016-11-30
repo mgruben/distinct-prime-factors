@@ -8,6 +8,9 @@ using namespace std;
  * 
  * This function pushes the smallest factors first, followed by
  * larger factors.  As such, it appends vectors in sorted order.
+ * 
+ * This function was adopted from the isPrime pseudocode located at
+ * https://en.wikipedia.org/wiki/Primality_test#Pseudocode
  */
 void factors(int n, vector<int> *v) {
     if (n <= 3){
