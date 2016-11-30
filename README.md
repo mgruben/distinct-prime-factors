@@ -17,7 +17,7 @@ The first three consecutive numbers to have three distinct prime factors are:
 Find the first four consecutive integers to have four distinct prime factors each.
 
 ### (Theoretical?) Limitations
-This implementation uses the `int` primitive to find consecutive numbers.  As such, it probably cannot find the first **five** consecutive numbers to have **five** distinct prime factors.  
+This implementation uses the `int` primitive to find consecutive numbers.  As such, it probably cannot find the first **five** consecutive numbers to have **five** distinct prime factors before overflowing.  
 However, after using the `long long` primitive rather than `int`, this program does not appear to arrive at an answer.  
 As an aside, it's unclear whether there even *are* five consecutive numbers with five distinct primes.
 
